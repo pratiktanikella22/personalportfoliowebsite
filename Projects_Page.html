@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects </title>
+    <link rel="shortcut icon" type="image/jpg" href="/Users/ptani/Downloads/brandnew23.png">
+    href="./faviconforweb.jpg"/>
+    <style type = "text/css">
+
+    
+
+body {
+
+    *  {
+        margin: 0;
+        padding: 0;
+    }
+            background-image: url('/Users/ptani/Downloads/27new.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0; 
+            padding: 0; 
+        }
+    </style>
+    </head>    
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS Projects Showcase</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    .header {
+        text-align: center;
+        padding: 20px;
+    }
+    .header h1 {
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+    .header p {
+        font-size: 18px;
+        color: #666;
+    }
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px;
+    }
+    .project-card {
+        width: 300px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+        overflow: hidden;
+        transition: transform 0.3s, opacity 0.5s; /* Added opacity transition */
+        opacity: 0; /* Initially hidden */
+    }
+    .project-card:hover {
+        transform: translateY(-5px);
+    }
+    .project-image {
+        height: 200px;
+        overflow: hidden;
+    }
+    .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .project-content {
+        padding: 20px;
+    }
+    .project-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .project-description {
+        font-size: 16px;
+        color: #666;
+    }
+    .project-link {
+        display: block;
+        text-align: center;
+        padding: 10px 0;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 0 0 8px 8px;
+        transition: background-color 0.3s;
+    }
+    .project-link:hover {
+        background-color: #0056b3;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .container .project-card {
+        animation: fadeIn 0.5s ease-in-out forwards;
+        animation-delay: calc(0.3s * var(--index)); /* Delay each card animation */
+    }
+</style>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Another Page</title>
+    <style>
+        /* Include the CSS code here */
+        .content {
+            display: flex;
+            justify-content: center; /* Center the items horizontally */
+            align-items: center; /* Center the items vertically */
+            flex-wrap: wrap; /* Wrap the items if they don't fit in one line */
+            gap: 10px; /* Add space between the items */
+            margin-top: 50px; /* Adjust as needed */
+        }
+        .content a {
+            text-decoration: none;
+            padding: 10px;
+            margin: 5px;
+            border: 2px solid #000000;
+            color: #000000;
+            border-radius: 50%; /* Make it a circle */
+            transition: background-color 0.3s, color 0.3s;
+            display: inline-block;
+        }
+        .content a:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        .email-button {
+            padding: 10px 20px;
+            background-color: #4285f4;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            border-radius: 50%; /* Make it a circle */
+            border: 2px solid #000000;
+            color: #000000;
+        }
+        .email-button:hover {
+            background-color: #357ae8;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Include the HTML code here -->
+    <div class="content">
+        <a href="./Personal_Website.html">Home</a>
+        <a href="./Projects_Page.html">Projects</a>
+        <a href="./skills_page.html">Skills</a>
+        <a href="./NEWTRY_html.html">Experiences</a>
+        <a href="https://www.linkedin.com/in/pratik-tanikella/">LinkedIn</a>
+    </div>
+</body>
+</html>
+<body>
+<div class="header">
+    <h1>Projects</h1>
+    <p style="color: black;">Explore my CS projects!</p>
+</div>
+
+
+
+
+<div class="container">
+    <div class="project-card" style="--index: 1;"> <!-- Added custom property for animation delay -->
+        <div class="project-image">
+            <img src="/Users/ptani/Downloads/coding_pic.jpg" alt="Project 1">
+        </div>
+        <div class="project-content">
+            <h2 class="project-title">Recommendation Software</h2>
+            <p class="project-description">Developed a recommendation software for Books, Movies, and TV Shows. Which optimizes user satisfaction by delivering tailored suggestions.</p>
+        </div>
+        <a href="./Recommendation_Software_Page.html" class="project-link">View Project</a>
+    </div>
+    <div class="project-card" style="--index: 2;"> <!-- Added custom property for animation delay -->
+        <div class="project-image">
+            <img src="/Users/ptani/Downloads/newimage.png" alt="Project 2">
+        </div>
+        <div class="project-content">
+            <h2 class="project-title">Personal Website</h2>
+            <p class="project-description">Developed a personalized CS Website.  Implemented with HTML and JavaScript, the website demonstrates proficiency in web development.</p>
+        </div>
+        <a href="./htmlexplain_page.html" class="project-link">View Project</a>
+    </div>
+    <div class="project-card" style="--index: 3;"> <!-- Added custom property for animation delay -->
+        <div class="project-image">
+            <img src="/Users/ptani/Downloads/IOT.jpg" alt="Project 3">
+        </div>
+        <div class="project-content">
+            <h2 class="project-title">IOT - Internet of Things</h2>
+            <p class="project-description">Established a weather station to monitor and analyze atmospheric and environmental conditions. Which assists in comprehending local weather patterns.</p>
+        </div>
+        <a href = "./IOT_Explain_Page.html" class = "project-link">View Project</a>
+    </div>
+</div>
+</div>
+
+<script>
+    // Optional: Add JavaScript for interactivity or dynamic content loading
+</script>
+</body>
+</html>

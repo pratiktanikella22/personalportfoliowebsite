@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects </title>
+    <link rel="shortcut icon" type="image/jpg"
+    href="./faviconforweb.jpg"/>
+    <style type = "text/css">
+
+    
+
+body {
+
+    *  {
+        margin: 0;
+        padding: 0;
+    }
+            background-image: url('/Users/ptani/Downloads/27new.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0; 
+            padding: 0; 
+        }
+    </style>
+    </head>    
+
+    
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Another Page</title>
+    <style>
+        /* Include the CSS code here */
+        .content {
+            display: flex;
+            justify-content: center; /* Center the items horizontally */
+            align-items: center; /* Center the items vertically */
+            flex-wrap: wrap; /* Wrap the items if they don't fit in one line */
+            gap: 10px; /* Add space between the items */
+            margin-top: 50px; /* Adjust as needed */
+        }
+        .content a {
+            text-decoration: none;
+            padding: 10px;
+            margin: 5px;
+            border: 2px solid #000000;
+            color: #000000;
+            border-radius: 50%; /* Make it a circle */
+            transition: background-color 0.3s, color 0.3s;
+            display: inline-block;
+        }
+        .content a:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        .email-button {
+            padding: 10px 20px;
+            background-color: #4285f4;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            border-radius: 50%; /* Make it a circle */
+            border: 2px solid #000000;
+            color: #000000;
+        }
+        .email-button:hover {
+            background-color: #357ae8;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Include the HTML code here -->
+    <div class="content">
+        <a href="./Personal_Website.html">Home</a>
+        <a href="./Projects_Page.html">Projects</a>
+        <a href="./skills_page.html">Skills</a>
+        <a href="./NEWTRY_html.html">Experiences</a>
+        <a href="https://www.linkedin.com/in/pratik-tanikella/">LinkedIn</a>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+        }
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 18px;
+            color: #666;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .skill-card {
+            width: 300px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            overflow: hidden;
+            transition: transform 0.3s, opacity 0.5s;
+            opacity: 0;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+        .skill-content {
+            padding: 20px;
+        }
+        .skill-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .skill-description {
+            font-size: 16px;
+            color: #666;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .container .skill-card {
+            animation: fadeIn 0.5s ease-in-out forwards;
+            animation-delay: calc(0.3s * var(--index));
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>Skills</h1>
+</div>
+<div class="container">
+    <div class="skill-card" style="--index: 1;">
+        <div class="skill-content">
+            <h2 class="skill-title">Python Programming</h2>
+            <p class="skill-description">Proficient in Python programming language with experience in various libraries and frameworks.</p>
+        </div>
+    </div>
+    <div class="skill-card" style="--index: 2;">
+        <div class="skill-content">
+            <h2 class="skill-title">Web Development</h2>
+            <p class="skill-description">Skilled in front-end and back-end web development technologies including HTML, CSS, JavaScript, and frameworks like React and Node.js.</p>
+        </div>
+    </div>
+    <div class="skill-card" style="--index: 3;">
+        <div class="skill-content">
+            <h2 class="skill-title">Data Analysis</h2>
+            <p class="skill-description">Experience in data analysis and visualization using tools like Pandas, Matplotlib, and Seaborn.</p>
+        </div>
+    </div>
+    <div class="skill-card" style="--index: 4;">
+        <div class="skill-content">
+            <h2 class="skill-title">Machine Learning</h2>
+            <p class="skill-description">Familiar with machine learning concepts and algorithms, with hands-on experience in frameworks such as TensorFlow and scikit-learn.</p>
+        </div>
+    </div>
+    <div class="skill-card" style="--index: 5;">
+        <div class="skill-content">
+            <h2 class="skill-title">Database Management</h2>
+            <p class="skill-description">Knowledgeable in SQL and NoSQL databases, including MySQL, PostgreSQL, and MongoDB.</p>
+        </div>
+    </div>
+    <div class="skill-card" style="--index: 6;">
+        <div class="skill-content">
+            <h2 class="skill-title">Problem Solving</h2>
+            <p class="skill-description">Strong problem-solving skills with experience in algorithmic problem solving and optimization techniques.</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

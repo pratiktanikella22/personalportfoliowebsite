@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiences</title>
+    <link rel="shortcut icon" type="image/jpg"
+    href="./faviconforweb.jpg"/>
+    <style type = "text/css">
+
+    
+
+body {
+
+    *  {
+        margin: 0;
+        padding: 0;
+    }
+            background-image: url('/Users/ptani/Downloads/27new.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0; 
+            padding: 0; 
+        }
+    </style>
+    </head>    
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vertical Scrolling Job Timeline</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .title {
+        text-align: center;
+        font-size: 36px;
+        margin-top: 20px;
+        font-weight: 700;
+    }
+    .timeline {
+        margin: 20px auto;
+        max-width: 600px;
+    }
+    .event {
+        padding: 20px;
+        border-bottom: 1px solid #ccc;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        animation: fadeIn 1s ease forwards;
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+</head>
+<body>
+<div class="title">Experiences</div>
+<div class="timeline">
+    <div class="event" style="transition-delay: 0s;">
+        <h2>Cisco Externship</h2>
+        <a href="#" class="project-link">Click here to learn more</a>
+        </p>
+    </div>
+    <div class="event" style="transition-delay: 0.5s;">
+        <h2>Python Tutoring</h2>
+        <a href="#" class="project-link">Click here to learn more</a>
+
+    </div>
+    <div class="event" style="transition-delay: 1s;">
+        <h2>Job 3</h2>
+        <p>Description of Job 3</p>
+    </div>
+    <div class="event" style="transition-delay: 1.5s;">
+        <h2>Job 4</h2>
+        <p>Description of Job 4</p>
+    </div>
+    <div class="event" style="transition-delay: 2s;">
+        <h2>Job 5</h2>
+        <p>Description of Job 5</p>
+    </div>
+    <div class="event" style="transition-delay: 2.5s;">
+        <h2>Job 6</h2>
+        <p>Description of Job 6</p>
+    </div>
+    <!-- Add more events as needed -->
+</div>
+
+<script>
+    window.addEventListener('scroll', function() {
+        const timeline = document.querySelector('.timeline');
+        const events = document.querySelectorAll('.event');
+        
+        const triggerBottom = window.innerHeight / 5 * 4;
+        
+        events.forEach(event => {
+            const eventTop = event.getBoundingClientRect().top;
+            if (eventTop < triggerBottom) {
+                event.style.opacity = 1;
+            }
+        });
+    });
+</script>
+</body>
+</html>

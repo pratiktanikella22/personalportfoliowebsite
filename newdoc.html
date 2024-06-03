@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="shortcut icon" type="image/jpg" href="./faviconforweb.jpg"/>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('/Users/ptani/Downloads/27new.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        .content {
+            display: flex;
+            justify-content: center; /* Center the items horizontally */
+            align-items: center; /* Center the items vertically */
+            flex-wrap: wrap; /* Wrap the items if they don't fit in one line */
+            gap: 10px; /* Add space between the items */
+            margin-top: 20px; /* Adjust as needed */
+            z-index: 10;
+        }
+        .content a {
+            text-decoration: none;
+            padding: 10px;
+            margin: 5px;
+            border: 2px solid #000000;
+            color: #000000;
+            border-radius: 50%; /* Make it a circle */
+            transition: background-color 0.3s, color 0.3s;
+            display: inline-block;
+        }
+        .content a:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        .email-button {
+            padding: 10px 20px;
+            background-color: #4285f4;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50%; /* Make it a circle */
+            border: 2px solid #000000;
+            color: #000000;
+        }
+        .email-button:hover {
+            background-color: #357ae8;
+            color: #ffffff;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        h1, h2, h3, label {
+            margin: 0 0 10px 0;
+            padding: 0;
+        }
+        .input-container, .search-container {
+            margin-bottom: 20px;
+        }
+        .library {
+            overflow-y: auto;
+            max-height: 400px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .box {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .genre {
+            margin-bottom: 10px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .search-result {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Buttons -->
+    <div class="content">
+        <a href="./Personal_Website.html">Home</a>
+        <a href="./Projects_Page.html">Projects</a>
+        <a href="./skills_page.html">Skills</a>
+        <a href="./NEWTRY_html.html">Experiences</a>
+        <a href="https://www.linkedin.com/in/pratik-tanikella/">LinkedIn</a>
+    </div>
+
+    <!-- App Content -->
+    <div class="container">
+        <h1>Entertainment Database</h1>
+        <h3>Enter or Search for any TV show, Movie, or Book</h3>
+        <div class="input-container">
+            <h2>Add to Database</h2>
+            <form id="addForm">
+                <label for="category">Category:</label>
+                <select id="category">
+                    <option value="tv shows">TV Shows</option>
+                    <option value="books">Books</option>
+                    <option value="movies">Movies</option>
+                </select><br>
+                <label for="genre">Genre:</label>
+                <input type="text" id="genre"><br>
+                <label for="item">Item:</label>
+                <input type="text" id="item"><br>
+                <button type="button" onclick="addToDatabase()">Add</button>
+            </form>
+        </div>
+        <div class="library" id="library">
+            <h2>Library Contents:</h2>
+            <div id="tvShows" class="box">
+                <h3>TV Shows</h3>
+                <div id="tvShowGenres" class="genres"></div>
+            </div>
+            <div id="books" class="box">
+                <h3>Books</h3>
+                <div id="bookGenres" class="genres"></div>
+            </div>
+            <div id="movies" class="box">
+                <h3>Movies</h3>
+                <div id="movieGenres" class="genres"></div>
+            </div>
+        </div>
+        <div class="search-container">
+            <h2>Search</h2>
+            <input type="text" id="searchInput">
+            <button onclick="searchDatabase()">Search</button>
+            <div id="searchResults"></div>
+        </div>
+    </div>
+
+    <script>
+        var db = {
+            "tv shows": {
+                "Drama": ["Breaking Bad", "Friends", "The Crown", "The Office", "Stranger Things", "The Witcher", "Mindhunter", "Black Mirror", "The Mandalorian", "Ozark", "Money Heist", "The Queen's Gambit", "Narcos", "Peaky Blinders", "The Sopranos", "Westworld", "Better Call Saul", "The Handmaid's Tale", "Fargo", "True Detective"],
+                "Sci-Fi": ["Stranger Things", "Black Mirror", "Westworld", "The Mandalorian", "Doctor Who", "The Expanse", "Altered Carbon", "Star Trek: Discovery", "Dark", "The Twilight Zone", "Battlestar Galactica", "Fringe", "Firefly", "Orphan Black", "The X-Files", "Lost", "The 100", "Stargate SG-1", "Sense8", "Continuum"]
+            },
+            "books": {
+                "Classic": ["1984", "To Kill a Mockingbird", "Pride and Prejudice", "Jane Eyre", "Wuthering Heights", "Great Expectations", "Moby-Dick", "War and Peace", "The Picture of Dorian Gray", "Crime and Punishment", "Anna Karenina", "The Count of Monte Cristo", "Les Misérables", "The Scarlet Letter", "Emma", "Oliver Twist", "The Odyssey", "The Iliad", "The Divine Comedy", "Don Quixote"],
+                "Fantasy": ["Harry Potter", "Percy Jackson", "The Lord of the Rings", "A Song of Ice and Fire", "The Chronicles of Narnia", "His Dark Materials", "The Wheel of Time", "The Kingkiller Chronicle", "The Witcher", "Mistborn", "The Stormlight Archive", "The Earthsea Cycle", "The Malazan Book of the Fallen", "The Broken Empire Trilogy", "The Inheritance Cycle", "The Black Prism", "The Belgariad", "The Riyria Revelations", "The First Law Trilogy", "The Dark Tower Series"],
+                "Adventure": ["Dracula", "Robinson Crusoe", "Treasure Island", "Gulliver's Travels", "The Adventures of Huckleberry Finn", "Around the World in Eighty Days", "The Call of the Wild", "Twenty Thousand Leagues Under the Sea", "Journey to the Center of the Earth", "The Swiss Family Robinson", "The Three Musketeers", "Kidnapped", "The Lost World", "The Count of Monte Cristo", "The Last of the Mohicans", "The Prisoner of Zenda", "King Solomon's Mines", "The Man in the Iron Mask", "The Black Arrow", "The Coral Island"]
+            },
+            "movies": {
+                "Drama": ["The Shawshank Redemption", "The Godfather", "Schindler's List", "Casablanca", "Forrest Gump", "Titanic", "The Green Mile", "The Pianist", "The Departed", "The Prestige", "The Pursuit of Happyness", "A Beautiful Mind", "The Social Network", "The Curious Case of Benjamin Button", "The Reader", "The Help", "The Theory of Everything", "Dallas Buyers Club", "12 Years a Slave", "The Imitation Game"],
+                "Sci-Fi": ["Back to the Future", "Inception", "The Terminator", "Aliens", "Interstellar", "Blade Runner", "The Matrix", "Avatar", "Jurassic Park", "E.T. the Extra-Terrestrial", "The Fifth Element", "District 9", "Arrival", "Minority Report", "Children of Men", "Ex Machina", "Moon", "Sunshine", "Her", "Annihilation"]
+            }
+        };
+
+        function addToDatabase() {
+            var category = document.getElementById("category").value;
+            var genre = document.getElementById("genre").value;
+            var item = document.getElementById("item").value;
+
+            if (category in db) {
+                if (genre in db[category]) {
+                    db[category][genre].push(item);
+                } else {
+                    db[category][genre] = [item];
+                }
+            } else {
+                db[category] = {};
+                db[category][genre] = [item];
+            }
+
+            displayLibrary();
+        }
+
+        function displayLibrary() {
+            var tvShowGenres = document.getElementById("tvShowGenres");
+            var bookGenres = document.getElementById("bookGenres");
+            var movieGenres = document.getElementById("movieGenres");
+
+            tvShowGenres.innerHTML = "";
+            bookGenres.innerHTML = "";
+            movieGenres.innerHTML = "";
+
+            for (var genre in db["tv shows"]) {
+                tvShowGenres.innerHTML += "<div class='genre'><strong>" + genre + "</strong>:<br>" + db["tv shows"][genre].join("<br>") + "</div>";
+            }
+
+            for (var genre in db["books"]) {
+                bookGenres.innerHTML += "<div class='genre'><strong>" + genre + "</strong>:<br>" + db["books"][genre].join("<br>") + "</div>";
+            }
+
+            for (var genre in db["movies"]) {
+                movieGenres.innerHTML += "<div class='genre'><strong>" + genre + "</strong>:<br>" + db["movies"][genre].join("<br>") + "</div>";
+            }
+        }
+
+        function searchDatabase() {
+            var query = document.getElementById("searchInput").value.toLowerCase();
+            var results = [];
+            for (var category in db) {
+                for (var genre in db[category]) {
+                    results = results.concat(db[category][genre].filter(item => item.toLowerCase().includes(query)).map(item => ({ category: category, genre: genre, item: item })));
+                }
+            }
+            displaySearchResults(results);
+        }
+
+        function displaySearchResults(results) {
+            var searchResults = document.getElementById("searchResults");
+            searchResults.innerHTML = "<h2>Search Results</h2>";
+            results.forEach(result => {
+                searchResults.innerHTML += "<div class='search-result'><strong>Category:</strong> " + result.category + "<br><strong>Genre:</strong> " + result.genre + "<br><strong>Item:</strong> " + result.item + "</div>";
+            });
+        }
+
+        // Initial display
+        displayLibrary();
+    </script>
+</body>
+</html>

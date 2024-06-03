@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Explanation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('/Users/ptani/Downloads/27new.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px; /* Adjust this value to move content closer to the top */
+        }
+
+        .content {
+            display: flex;
+            justify-content: center; /* Center the items horizontally */
+            align-items: center; /* Center the items vertically */
+            flex-wrap: wrap; /* Wrap the items if they don't fit in one line */
+            gap: 10px; /* Add space between the items */
+            margin-bottom: 20px; /* Space between the buttons and the app button */
+        }
+
+        .content a {
+            text-decoration: none;
+            padding: 10px;
+            margin: 5px;
+            border: 2px solid #000000;
+            color: #000000;
+            border-radius: 50%; /* Make it a circle */
+            transition: background-color 0.3s, color 0.3s;
+            display: inline-block;
+        }
+
+        .content a:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        .email-button {
+            padding: 10px 20px;
+            background-color: #4285f4;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            border-radius: 50%; /* Make it a circle */
+            border: 2px solid #000000;
+            color: #000000;
+        }
+
+        .email-button:hover {
+            background-color: #357ae8;
+            color: #ffffff;
+        }
+
+        .top-button {
+            margin-bottom: 20px; /* Add some margin for spacing */
+        }
+
+        .top-button a {
+            text-decoration: none;
+        }
+
+        .top-button button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 30px; /* Increased padding for a larger button */
+            font-size: 18px; /* Increased font size */
+            font-weight: bold; /* Added bold font weight */
+            cursor: pointer;
+            border-radius: 5px; /* Added border radius for a more professional look */
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        .top-button button:hover {
+            background-color: #45a049;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            color: black; /* Changed text color to black */
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 18px;
+            color: black; /* Changed text color to black */
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        .project-card {
+            width: 300px;
+            height: 300px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            height: 150px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .project-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: black;
+        }
+
+        .project-description {
+            font-size: 16px;
+            color: #666;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .container .project-card {
+            animation: fadeIn 0.5s ease-in-out forwards;
+            animation-delay: calc(0.3s * var(--index));
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <a href="./Personal_Website.html">Home</a>
+        <a href="./Projects_Page.html">Projects</a>
+        <a href="./skills_page.html">Skills</a>
+        <a href="./NEWTRY_html.html">Experiences</a>
+        <a href="https://www.linkedin.com/in/pratik-tanikella/">LinkedIn</a>
+    </div>
+
+
+
+    <div class="header">
+        <h1>Explanation of Personal Portfolio Website</h1>
+        <p>Developed a website using HTML and JavaScript.</p>
+    </div>
+
+    <div class="container">
+        <div class="project-card" style="--index: 2;">
+            <a href="./newnewpptx_html.html" style="text-decoration: none; color: inherit;">
+                <div class="project-image">
+                    <img src="/Users/ptani/Downloads/brandnew.png" alt="Project 2">
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Code & Output</h2>
+                    <p class="project-description"></p>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
+

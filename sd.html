@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects </title>
+    <link rel="shortcut icon" type="image/jpg"
+    href="./faviconforweb.jpg"/>
+    <style type = "text/css">
+
+
+
+body {
+
+    *  {
+        margin: 0;
+        padding: 0;
+    }
+            background-image: url('/Users/ptani/Downloads/27new.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0; 
+            padding: 0; 
+        }
+    </style>
+    </head>    
+
+
+    <script>
+        var db = {
+            "tv shows": {
+                "Drama": ["Breaking Bad", "Friends", "The Crown", "The Office", "Stranger Things", "The Witcher", "Mindhunter", "Black Mirror", "The Mandalorian", "Ozark", "Money Heist", "The Queen's Gambit", "Narcos", "Peaky Blinders", "The Sopranos", "Westworld", "Better Call Saul", "The Handmaid's Tale", "Fargo", "True Detective"],
+                "Sci-Fi": ["Stranger Things", "Black Mirror", "Westworld", "The Mandalorian", "Doctor Who", "The Expanse", "Altered Carbon", "Star Trek: Discovery", "Dark", "The Twilight Zone", "Battlestar Galactica", "Fringe", "Firefly", "Orphan Black", "The X-Files", "Lost", "The 100", "Stargate SG-1", "Sense8", "Continuum"]
+            },
+            "books": {
+                "Classic": ["1984", "To Kill a Mockingbird", "Pride and Prejudice", "Jane Eyre", "Wuthering Heights", "Great Expectations", "Moby-Dick", "War and Peace", "The Picture of Dorian Gray", "Crime and Punishment", "Anna Karenina", "The Count of Monte Cristo", "Les Misérables", "The Scarlet Letter", "Emma", "Oliver Twist", "The Odyssey", "The Iliad", "The Divine Comedy", "Don Quixote"],
+                "Fantasy": ["Harry Potter", "Percy Jackson", "The Lord of the Rings", "A Song of Ice and Fire", "The Chronicles of Narnia", "His Dark Materials", "The Wheel of Time", "The Kingkiller Chronicle", "The Witcher", "Mistborn", "The Stormlight Archive", "The Earthsea Cycle", "The Malazan Book of the Fallen", "The Broken Empire Trilogy", "The Inheritance Cycle", "The Black Prism", "The Belgariad", "The Riyria Revelations", "The First Law Trilogy", "The Dark Tower Series"],
+                "Adventure": ["Dracula", "Robinson Crusoe", "Treasure Island", "Gulliver's Travels", "The Adventures of Huckleberry Finn", "Around the World in Eighty Days", "The Call of the Wild", "Twenty Thousand Leagues Under the Sea", "Journey to the Center of the Earth", "The Swiss Family Robinson", "The Three Musketeers", "Kidnapped", "The Lost World", "The Count of Monte Cristo", "The Last of the Mohicans", "The Prisoner of Zenda", "King Solomon's Mines", "The Man in the Iron Mask", "The Black Arrow", "The Coral Island"]
+            },
+            "movies": {
+                "Drama": ["The Shawshank Redemption", "The Godfather", "Schindler's List", "Casablanca", "Forrest Gump", "Titanic", "The Green Mile", "The Pianist", "The Departed", "The Prestige", "The Pursuit of Happyness", "A Beautiful Mind", "The Social Network", "The Curious Case of Benjamin Button", "The Reader", "The Help", "The Theory of Everything", "Dallas Buyers Club", "12 Years a Slave", "The Imitation Game"],
+                "Sci-Fi": ["Back to the Future", "Inception", "The Terminator", "Aliens", "Interstellar", "Blade Runner", "The Matrix", "Avatar", "Jurassic Park", "E.T. the Extra-Terrestrial", "The Fifth Element", "District 9", "Arrival", "Minority Report", "Children of Men", "Ex Machina", "Moon", "Sunshine", "Her", "Annihilation"]
+            }
+        };
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media Database Application</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+    }
+    .box {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: inline-block;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 5px;
+    }
+    input[type="text"] {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Media Database Application</h1>
+    <div class="box">
+        <button onclick="showAddMedia()">Add Media</button>
+        <button onclick="showSearch()">Search</button>
+    </div>
+    <div id="addMediaBox" class="box" style="display: none;">
+        <h2>Add Media</h2>
+        <input type="text" placeholder="Media Type">
+        <input type="text" placeholder="Name">
+        <input type="text" placeholder="Genre">
+        <button>Add</button>
+    </div>
+    <div id="searchBox" class="box" style="display: none;">
+        <h2>Search</h2>
+        <input type="text" placeholder="Search...">
+        <button>Search</button>
+    </div>
+</div>
+<script>
+    function showAddMedia() {
+        document.getElementById('addMediaBox').style.display = 'block';
+        document.getElementById('searchBox').style.display = 'none';
+    }
+    function showSearch() {
+        document.getElementById('searchBox').style.display = 'block';
+        document.getElementById('addMediaBox').style.display = 'none';
+    }
+</script>
+</body>
+</html>

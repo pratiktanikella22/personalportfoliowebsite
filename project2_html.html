@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Station </title>
+    <link rel="shortcut icon" type="image/jpg"
+    href="./faviconforweb.jpg"/>
+    <style type = "text/css">
+
+
+
+body {
+
+    *  {
+        margin: 0;
+        padding: 0;
+    }
+            background-image: url('/Users/ptani/Downloads/27new.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0; 
+            padding: 0; 
+        }
+    </style>
+    </head>    
+
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Station</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .sensor {
+            margin: 10px 0;
+        }
+        .sensor span {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+        #locationForm {
+            margin-top: 20px;
+        }
+        #locationForm label {
+            margin-right: 5px;
+        }
+        #locationForm input {
+            margin-right: 10px;
+        }
+        #fetchButton {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #conversionBox {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        #conversionResult {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Station</h1>
+        <form id="locationForm">
+            <label for="latitudeInput">Latitude:</label>
+            <input type="text" id="latitudeInput" placeholder="Enter latitude">
+            <label for="longitudeInput">Longitude:</label>
+            <input type="text" id="longitudeInput" placeholder="Enter longitude">
+            <button type="button" id="fetchButton">Weather</button>
+        </form>
+        <div id="weatherData" style="display: none;">
+            <div class="sensor">
+                <span>Temperature:</span>
+                <span id="temperature">-- °C</span>
+            </div>
+            <div class="sensor">
+                <span>Humidity:</span>
+                <span id="humidity">-- %</span>
+            </div>
+            <div class="sensor">
+                <span>Pressure:</span>
+                <span id="pressure">-- hPa</span>
+            </div>
+            <div class="sensor">
+                <span>Wind Speed:</span>
+                <span id="windSpeed">-- m/s</span>
+            </div>
+            <div class="sensor">
+                <span>Rainfall:</span>
+                <span id="rainfall">-- mm</span>
+            </div>
+            <div id="conversionBox">
+                <label for="celsiusInput">Enter Celsius:</label>
+                <input type="number" id="celsiusInput" min="-273.15" step="any">
+                <button onclick="convertToCelsius()">Convert</button>
+                <div id="conversionResult"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const apiKey = 'cd7649b60ba78073d6d484b810a2345d'; // Your actual API key
+        const fetchButton = document.getElementById('fetchButton');
+
+        fetchButton.addEventListener('click', async () => {
+            const latitude = document.getElementById('latitudeInput').value;
+            const longitude = document.getElementById('longitudeInput').value;
+
+            if (latitude && longitude) {
+                const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
+
+                try {
+                    const response = await fetch(apiUrl);
+                    const data = await response.json();
+
+                    document.getElementById('temperature').textContent = `${data.main.temp} °C`;
+                    document.getElementById('humidity').textContent = `${data.main.humidity} %`;
+                    document.getElementById('pressure').textContent = `${data.main.pressure} hPa`;
+                    document.getElementById('windSpeed').textContent = `${data.wind.speed} m/s`;
+                    document.getElementById('rainfall').textContent = data.rain ? `${data.rain['1h']} mm` : '0 mm';
+
+                    document.getElementById('weatherData').style.display = 'block';
+                } catch (error) {
+                    console.error('Error fetching weather data:', error);
+                }
+            } else {
+                alert('Please enter both latitude and longitude.');
+            }
+        });
+
+        function convertToCelsius() {
+            const celsiusInput = document.getElementById('celsiusInput').value;
+            const fahrenheit = (celsiusInput * 9/5) + 32;
+            document.getElementById('conversionResult').textContent = `${celsiusInput} °C = ${fahrenheit.toFixed(2)} °F`;
+        }
+    </script>
+</body>
+</html>
