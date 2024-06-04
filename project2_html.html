@@ -8,7 +8,116 @@
     href="./faviconforweb.jpg"/>
     <style type = "text/css">
 
-
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('./realpic.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        .content {
+            display: flex;
+            justify-content: center; /* Center the items horizontally */
+            align-items: center; /* Center the items vertically */
+            flex-wrap: wrap; /* Wrap the items if they don't fit in one line */
+            gap: 10px; /* Add space between the items */
+            margin-top: 20px; /* Adjust as needed */
+            z-index: 10;
+        }
+        .content a {
+            text-decoration: none;
+            padding: 10px;
+            margin: 5px;
+            border: 2px solid #000000;
+            color: #000000;
+            border-radius: 50%; /* Make it a circle */
+            transition: background-color 0.3s, color 0.3s;
+            display: inline-block;
+        }
+        .content a:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        .email-button {
+            padding: 10px 20px;
+            background-color: #4285f4;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50%; /* Make it a circle */
+            border: 2px solid #000000;
+            color: #000000;
+        }
+        .email-button:hover {
+            background-color: #357ae8;
+            color: #ffffff;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        h1, h2, h3, label {
+            margin: 0 0 10px 0;
+            padding: 0;
+        }
+        .input-container, .search-container {
+            margin-bottom: 20px;
+        }
+        .library {
+            overflow-y: auto;
+            max-height: 400px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .box {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .genre {
+            margin-bottom: 10px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .search-result {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Buttons -->
+    <div class="content">
+        <a href="./Personal_Website.html">Home</a>
+        <a href="./Projects_Page.html">Projects</a>
+        <a href="./skills_page.html">Skills</a>
+        <a href="./NEWTRY_html.html">Experiences</a>
+        <a href="https://www.linkedin.com/in/pratik-tanikella/">LinkedIn</a>
+    </div>
 
 body {
 
