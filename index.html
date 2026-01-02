@@ -1,264 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pratik Tanikella's Personal Website</title>
-    <link rel="icon" href="./newfav.png" type="image/x-icon"> <!-- Favicon -->
-    <style>
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            color: #333;
-            transition: background-color 0.3s;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pratik Tanikella | Personal Website</title>
+<link rel="icon" href="./newfav.png" type="image/x-icon">
+<style>
+/* --- Base Styles --- */
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+header {
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 15px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+header nav ul li {
+  margin: 0 15px;
+}
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+header nav a:hover { color: #1abc9c; }
+main { padding: 20px; display: flex; flex-direction: column; align-items: center; }
+section {
+  background-color: #fff;
+  padding: 30px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 900px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-in-out;
+}
+section.visible { opacity: 1; transform: translateY(0); }
+h1, h2, h3 { color: #333; margin-bottom: 15px; }
+p { margin-bottom: 15px; line-height: 1.6; }
 
-        header {
-            background-color: #2c3e50;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
+/* Hero */
+#hero {
+  text-align: center;
+  padding: 50px 20px;
+  background: linear-gradient(to bottom right, #3498db, #8e44ad);
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+#hero h1 { font-size: 2.8em; margin-bottom: 10px; }
+#hero p { font-size: 1.3em; margin-bottom: 20px; }
+#hero .social-icons img {
+  width: 35px; margin: 0 10px; transition: transform 0.3s;
+}
+#hero .social-icons img:hover { transform: scale(1.2); }
 
-        header nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
+/* Cards */
+.experience-card, .project-card, .leadership-card {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-left: 5px solid #3498db;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.experience-card:hover, .project-card:hover, .leadership-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+}
 
-        header nav ul li {
-            margin: 0 15px;
-        }
+/* Skills Bar */
+.skill-bar {
+  background-color: #ddd;
+  border-radius: 25px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.skill-bar-inner {
+  height: 18px;
+  width: 0;
+  background-color: #3498db;
+  line-height: 18px;
+  color: #fff;
+  text-align: right;
+  padding-right: 5px;
+  border-radius: 25px;
+  transition: width 1.2s ease-in-out;
+}
 
-        header nav a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
+/* Footer */
+footer {
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+}
 
-        header nav a:hover {
-            color: #1abc9c;
-        }
-
-        main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
-
-        #hero {
-            text-align: center;
-            padding: 40px;
-            background: linear-gradient(to bottom right, #3498db, #8e44ad);
-            color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        section {
-            background-color: #fff;
-            padding: 30px;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 800px;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        h1, h2, h3 {
-            color: #333;
-            margin-bottom: 15px;
-        }
-
-        p {
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .photo-gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .photo-gallery img {
-            width: 180px;
-            height: 180px;
-            margin: 10px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .experience-card, .project-card, .leadership-card {
-            background-color: #f9f9f9;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-left: 5px solid #3498db;
-            transition: transform 0.3s;
-        }
-
-        .experience-card:hover, .project-card:hover, .leadership-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        footer {
-            background-color: #2c3e50;
-            color: #fff;
-            padding: 15px;
-            text-align: center;
-            clear: both;
-        }
-
-        button {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #2980b9;
-        }
-    </style>
+/* Button */
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+button:hover { background-color: #2980b9; }
+</style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#leadership">Leadership</a></li>
-                <li><a href="#honors">Honors and Awards</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="hero">
-            <h1>Pratik V. Tanikella</h1>
-            <p>Computer Science and Business Administration Student | Expected Graduation: 2027</p>
-            <a href="https://www.linkedin.com/in/pratik-tanikella/" target="_blank">
-                <button>Learn More</button>
-            </a>
-                    </section>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>A passionate and driven student pursuing a dual major in Business Administration and Computer Science at UNC Charlotte. My journey in these dynamic fields began long before my university days, fueled by a curiosity and passion that have only deepened with time.</p>
-            <div class="photo-gallery">
-                <img src="./img1.jpeg" alt="Photo 1">
-            </div>
-        </section>
-        <section id="education">
-            <h2>Education</h2>
-            <p>UNC Charlotte - Charlotte, NC</p>
-            <ul>
-                <li>Major(s): Computer Science, Business Administration</li>
-                <li>Expected Graduation: 2027</li>
-                <li>Relevant Coursework: Object-Oriented Programming, Web Development, Accounting, Operations</li>
-            </ul>
-        </section>
-        <section id="certifications">
-            <h2>Certifications</h2>
-            <ul>
-                <li>Microsoft Suite: Word, Excel, and PowerPoint for document and data analysis</li>
-                <li>Project Management: Experienced with Trello and Asana for task management</li>
-                <li>Python Programming: Skilled in OOP, Data Analytics, and building applications</li>
-            </ul>
-        </section>
-        <section id="experience">
-            <h2>Experience</h2>
-            <div class="experience-card">
-                <h3>BrandSymbol - Business Development Intern (Sep 2024 - Present)</h3>
-                <p>At BrandSymbol, a branding and design agency focused on impactful visual identity creation, as an Account Researcher, I was responsible for keeping the CRM database updated with regard to the accuracy of client information. I supported the Account Executives in managing the outreach with clients and sales progression, took part in client pitches and project kick-offs to understand how to develop strategies.<p>
-            </div>
-            <div class="experience-card">
-                <h3>Linxy - Marketing Intern (May 2024 - Sep 2024)</h3>
-                <p>I supported the growth of Linxy, a social networking and event app, in the Raleigh area. My role developed and executed marketing strategies that kept users interested in increasing brand awareness while contributing to strategic planning and carrying out market research. This honed my abilities to contribute effectively toward marketing and analytics for growth and user acquisition.</p>
-            </div>
-            <div class="experience-card">
-                <h3>Tech Academy - STEM Intern (May 2024 - Aug 2024)</h3>
-                <p>I taught students to code, work with robotics, and design video games in order to develop their interest in technology and innovations. I have led and supported numerous classes in the fields of science, technology, engineering, and mathematics. This included hands-on activities that can help make seemingly complex concepts both understandable and enjoyable for young learners. </p>
 
-            </div>
-        </section>
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="project-card">
-                <h3>Personal HTML Website</h3>
-                <p>I created my personal website using HTML for structuring and JavaScript for the interactivity of presenting my projects and skills. I designed it using CSS, which was meant to handle the presentation and make sure layout would be aesthetic and responsive. The project shows my proficiency in web development and how to create functional online experiences that would highlight my work effectively. </p>
-            </div>
-            <div class="project-card">
-                <h3>Recommendation Software & IOT Project</h3>
-                <p>I have developed a weather station based on APIs and a set of sensors that gathers information on local weather conditions and visualizes real-time data through HTML and JavaScript. I have worked on a recommendation engine where Python was used with the scikit-learn library to analyze user preferences to recommend books, movies, and TV series.</p>
-            </div>
-        </section>
-        <section id="leadership">
-            <h2>Leadership</h2>
-            <div class="leadership-card">
-                <h3>Collegiate DECA - UNC Charlotte (2024 - Present)</h3>
-                <p>Founder & President</p>
-                <p>- Bridge communication between club members and executive board, organizing regular meetings for members to share their ideas and concerns</p>
-                <p>- Organized events and workshops, promoting entrepreneurial skills and networking opportunities among club members</p>
-                <p>- Prepare students for competitons and make layouts and plans for students competitive events</p>
-            </div>
-            <div class="leadership-card">
-                <h3>Entrepreneurship Club - UNC Charlotte (2024 - Present)</h3>
-                <p>Secretary</p>
-                <p>- Facilitated communication between members and executive board ensuring alignment on club goals & initiatives</p>
-                <p>- Organized events and workshops, promoting entrepreneurial skills and networking opportunities among club members</p>
-                <p>- Coordinated and documented meeting agendas, minutes, and action items</p>
-            </div>
-        </section>
-        <section id="honors">
-            <h2>Honors and Awards</h2>
-            <ul>
-                <li>
-                    <strong>DECA Start-Up Business and Innovation Plan Competition - 2nd Place, North Carolina (2023)</strong>
-                    <p>Awarded for presenting a comprehensive business plan that demonstrated innovative thinking and market viability.</p>
-                </li>
-                <li>
-                    <strong>IoT Arduino Challenge - 1st Place (2022)</strong>
-                    <p>Recognized for developing a creative and functional IoT project using Arduino technology, showcasing technical skills and ingenuity.</p>
-                </li>
-                <li>
-                    <strong>TSA Competition - Top 10 (2022)</strong>
-                    <p>Achieved a top 10 finish in the Technology Student Association competition, highlighting proficiency in technology and project development.</p>
-                </li>
-            </ul>
-        </section>
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: pratiktanikella@gmail.com</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/pratik-tanikella/" target="_blank">linkedin.com/in/pratik-tanikella</a></p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Pratik V. Tanikella</p>
-    </footer>
+<header>
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#leadership">Leadership</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section id="hero">
+    <h1>Pratik V. Tanikella</h1>
+    <p>Computer Science & Business Student | Intern @ Cisco</p>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/pratik-tanikella/" target="_blank"><img src="./linkedin.svg" alt="LinkedIn"></a>
+      <a href="mailto:pratiktanikella@gmail.com"><img src="./email.svg" alt="Email"></a>
+      <!-- Add GitHub, Portfolio if needed -->
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>A passionate dual major student at UNC Charlotte pursuing Computer Science and Business Administration. I love building solutions and leading initiatives that make an impact.</p>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <ul>
+      <li>UNC Charlotte - Computer Science & Business Administration (Expected 2027)</li>
+      <li>Relevant Courses: Object-Oriented Programming, Web Development, Accounting, Operations</li>
+    </ul>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skill-bar"><div class="skill-bar-inner" style="width:0%">Python</div></div>
+    <div class="skill-bar"><div class="skill-bar-inner" style="width:0%">C Programming</div></div>
+    <div class="skill-bar"><div class="skill-bar-inner" style="width:0%">Business Research</div></div>
+    <div class="skill-bar"><div class="skill-bar-inner" style="width:0%">Mobile App Design</div></div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="experience-card">
+      <h3>Cisco - Software Engineer Intern (Jun 2025 - Aug 2025)</h3>
+      <p>Built an Agentic AI platform using LangChain. Worked on Python & Java. Gained hands-on experience in cybersecurity concepts and cross-functional engineering collaboration.</p>
+    </div>
+    <div class="experience-card">
+      <h3>BrandSymbol - Business Development Intern (Sep 2024 - Dec 2024)</h3>
+      <p>Conducted account research, maintained CRM, and participated in client pitches, supporting company strategy.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <h3>Personal HTML Website</h3>
+      <p>Created this website using HTML, CSS, and JS to showcase projects, skills, and experience.</p>
+    </div>
+    <div class="project-card">
+      <h3>IoT Weather Station & Recommendation Engine</h3>
+      <p>Built a sensor-based weather station and a Python recommendation engine using scikit-learn.</p>
+    </div>
+  </section>
+
+  <section id="leadership">
+    <h2>Leadership</h2>
+    <div class="leadership-card">
+      <h3>Collegiate DECA - Founder & President</h3>
+      <p>Expanded DECA to UNC Charlotte, organized workshops, and prepared students for competitions.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:pratiktanikella@gmail.com">pratiktanikella@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/pratik-tanikella/" target="_blank">linkedin.com/in/pratik-tanikella</a></p>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 Pratik V. Tanikella</p>
+</footer>
+
+<script>
+// --- Animate sections on scroll ---
+const sections = document.querySelectorAll('section');
+window.addEventListener('scroll', () => {
+  const scrollPos = window.scrollY + window.innerHeight - 100;
+  sections.forEach(sec => {
+    if(scrollPos > sec.offsetTop) sec.classList.add('visible');
+  });
+});
+
+// --- Animate skill bars ---
+const skillBars = document.querySelectorAll('.skill-bar-inner');
+window.addEventListener('load', () => {
+  skillBars[0].style.width = '90%';
+  skillBars[1].style.width = '85%';
+  skillBars[2].style.width = '80%';
+  skillBars[3].style.width = '70%';
+});
+</script>
+
 </body>
 </html>
+
+
