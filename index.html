@@ -1,309 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pratik V. Tanikella | Portfolio</title>
-    <link rel="icon" href="./newfav.png" type="image/x-icon">
-    <style>
-        /* --- Base Styles --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        section {
-            width: 100%;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 50px 20px;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease-in-out;
-        }
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pratik Tanikella | Portfolio</title>
+<link rel="icon" href="./newfav.png" type="image/x-icon">
+<style>
+    /* --- GLOBAL STYLES --- */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        background-color: #f0f0f0;
+        color: #333;
+        scroll-behavior: smooth;
+    }
+    a { text-decoration: none; color: inherit; }
 
-        /* --- Hero Section --- */
-        #hero {
-            background: linear-gradient(135deg, #3498db, #8e44ad);
-            color: #fff;
-            text-align: center;
-            position: relative;
-        }
-        #hero h1 {
-            font-size: 4em;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        #hero p {
-            font-size: 1.5em;
-            margin-bottom: 50px;
-        }
-        #scroll-arrow {
-            position: absolute;
-            bottom: 30px;
-            font-size: 2em;
-            animation: bounce 2s infinite;
-            cursor: pointer;
-        }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-15px); }
-            60% { transform: translateY(-7px); }
-        }
+    /* --- HEADER / NAV --- */
+    header {
+        position: fixed;
+        top: -80px;
+        width: 100%;
+        background-color: rgba(44,62,80,0.95);
+        color: #fff;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        transition: top 0.5s;
+    }
+    header.show { top: 0; }
+    header nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        padding: 15px;
+    }
+    header nav ul li {
+        margin: 0 15px;
+    }
+    header nav ul li a {
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+    header nav ul li a:hover { color: #1abc9c; }
 
-        /* --- Navigation --- */
-        header {
-            width: 100%;
-            position: fixed;
-            top: -80px;
-            left: 0;
-            background: rgba(44, 62, 80, 0.95);
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            transition: top 0.5s ease;
-            z-index: 1000;
-        }
-        header nav ul {
-            display: flex;
-            list-style: none;
-            padding: 15px 20px;
-        }
-        header nav ul li {
-            margin: 0 15px;
-        }
-        header nav a {
-            color: #fff;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        header nav a:hover {
-            color: #1abc9c;
-        }
+    /* --- HERO SECTION --- */
+    #hero {
+        height: 100vh;
+        width: 100%;
+        background: linear-gradient(to bottom right, #6c5ce7, #a29bfe); /* chill colors */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    #hero h1 {
+        font-size: 4rem;
+        margin-bottom: 20px;
+    }
+    #hero p {
+        font-size: 1.5rem;
+        margin-bottom: 40px;
+    }
+    #hero button {
+        padding: 15px 30px;
+        font-size: 1rem;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        background-color: #74b9ff;
+        color: #2d3436;
+        font-weight: bold;
+        transition: all 0.3s;
+    }
+    #hero button:hover { background-color: #0984e3; color: white; }
 
-        /* --- Section Titles & Text --- */
-        h2 {
-            font-size: 2.2em;
-            margin-bottom: 20px;
-            color: #333;
-        }
-        p, li {
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
+    /* --- SCROLL ARROW --- */
+    .scroll-arrow {
+        position: absolute;
+        bottom: 20px;
+        font-size: 2rem;
+        animation: bounce 1.5s infinite;
+        cursor: pointer;
+    }
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(15px); }
+    }
 
-        /* --- Cards for Projects/Experience/Leadership --- */
-        .card {
-            background-color: #fff;
-            padding: 20px;
-            margin: 15px 0;
-            border-left: 5px solid #3498db;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-        }
+    /* --- MAIN SECTIONS --- */
+    main { padding: 20px; }
+    section {
+        background-color: #fff;
+        padding: 40px 20px;
+        margin: 20px auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        max-width: 900px;
+        animation: fadeIn 1s ease-in-out;
+    }
+    h2 { margin-bottom: 20px; color: #2d3436; }
+    p { margin-bottom: 15px; line-height: 1.6; }
+    ul { margin-left: 20px; margin-bottom: 15px; }
+    li { margin-bottom: 10px; }
 
-        /* --- Photo Gallery --- */
-        .photo-gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .photo-gallery img {
-            width: 180px;
-            height: 180px;
-            margin: 10px;
-            border-radius: 10px;
-            object-fit: cover;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
+    @keyframes fadeIn { from {opacity:0;} to{opacity:1;} }
 
-        /* --- Footer --- */
-        footer {
-            background-color: #2c3e50;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-    </style>
+    /* --- CARDS --- */
+    .experience-card, .project-card, .leadership-card {
+        background-color: #f9f9f9;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-left: 5px solid #6c5ce7;
+        transition: transform 0.3s;
+    }
+    .experience-card:hover, .project-card:hover, .leadership-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    /* --- PROJECTS --- */
+    .project-card h3 { margin-bottom: 10px; }
+    
+    /* --- PHOTO GALLERY --- */
+    .photo-gallery { display: flex; flex-wrap: wrap; justify-content: center; }
+    .photo-gallery img {
+        width: 180px; height: 180px; margin: 10px;
+        border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    /* --- FOOTER --- */
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: rgba(44,62,80,0.95);
+        color: white;
+        margin-top: 40px;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media(max-width:768px) {
+        #hero h1 { font-size: 3rem; }
+        #hero p { font-size: 1.2rem; }
+        header nav ul { flex-direction: column; }
+        header nav ul li { margin: 10px 0; }
+    }
+</style>
 </head>
 <body>
+<header id="header">
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#leadership">Leadership</a></li>
+      <li><a href="#honors">Honors</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <!-- --- Navigation --- -->
-    <header id="header">
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#leadership">Leadership</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<main>
+<section id="hero">
+  <h1>Pratik V. Tanikella</h1>
+  <p>Computer Science & Business Administration Student | Expected Graduation: 2027</p>
+  <a href="#about"><div class="scroll-arrow">⬇</div></a>
+</section>
 
-    <!-- --- Hero Section --- -->
-    <section id="hero">
-        <h1>Pratik V. Tanikella</h1>
-        <p>Computer Science & Business Administration | Expected Graduation: 2027</p>
-        <div id="scroll-arrow">&#x2193;</div>
-    </section>
+<section id="about">
+<h2>About Me</h2>
+<p>A passionate and driven student pursuing a dual major in Computer Science and Business Administration at UNC Charlotte.</p>
+<div class="photo-gallery">
+  <img src="./img1.jpeg" alt="Photo 1">
+</div>
+</section>
 
-    <!-- --- About Section --- -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Passionate student exploring Computer Science and Business Administration. I create digital solutions, build software, and lead initiatives that bridge tech and business.</p>
-        <div class="photo-gallery">
-            <img src="./img1.jpeg" alt="Photo 1">
-        </div>
-    </section>
+<section id="education">
+<h2>Education</h2>
+<p>UNC Charlotte - Charlotte, NC</p>
+<ul>
+  <li>Major(s): Computer Science, Business Administration</li>
+  <li>Expected Graduation: 2027</li>
+  <li>Relevant Coursework: Object-Oriented Programming, Web Development, Accounting, Operations</li>
+</ul>
+</section>
 
-    <!-- --- Education Section --- -->
-    <section id="education">
-        <h2>Education</h2>
-        <p><strong>UNC Charlotte</strong> – Charlotte, NC</p>
-        <ul>
-            <li>Dual Major: Computer Science & Business Administration</li>
-            <li>Expected Graduation: 2027</li>
-            <li>Relevant Courses: Web Development, Object-Oriented Programming, Accounting, Operations</li>
-        </ul>
-    </section>
+<section id="certifications">
+<h2>Certifications</h2>
+<ul>
+  <li>Microsoft Word, Excel, PowerPoint</li>
+  <li>PCEP - Certified Python Programmer</li>
+  <li>Project Management Tools: Trello, Asana</li>
+</ul>
+</section>
 
-    <!-- --- Experience Section --- -->
-    <section id="experience">
-        <h2>Experience</h2>
+<section id="experience">
+<h2>Experience</h2>
+<div class="experience-card">
+  <h3>Cisco | Software Engineer Intern | Jun 2025 - Aug 2025</h3>
+  <p>Built LangChain/GPT-4 agent flagging $100M+ subscription variances, reducing analyst review time by 85%. Created Streamlit dashboards and Python/SQL pipelines for 200,000+ records.</p>
+</div>
+<div class="experience-card">
+  <h3>BrandSymbol | Business Development Intern | Sep 2024 - Dec 2024</h3>
+  <p>Managed CRM, conducted client research, supported outreach, pitches, and strategy development for branding and design clients.</p>
+</div>
+<div class="experience-card">
+  <h3>Linxy | Marketing Intern | May 2024 - Sep 2024</h3>
+  <p>Executed marketing strategies, improved user engagement, conducted market research, and expanded app presence in Raleigh.</p>
+</div>
+<div class="experience-card">
+  <h3>Tech Academy | STEM Instructor & Intern | Jun 2024 - Aug 2024</h3>
+  <p>Taught coding, robotics, and video game design to students ages 6–14, creating hands-on learning experiences in STEM.</p>
+</div>
+</section>
 
-        <div class="card">
-            <h3>Cisco - Software Engineer Intern (Jun 2025 - Aug 2025)</h3>
-            <p>Built an Agentic AI platform using LangChain to handle customer queries. Enhanced performance with Python & Java, and collaborated with cross-functional engineering teams.</p>
-        </div>
+<section id="projects">
+<h2>Projects</h2>
 
-        <div class="card">
-            <h3>BrandSymbol - Business Development Intern (Sep 2024 - Dec 2024)</h3>
-            <p>Managed CRM data, supported outreach, and participated in client pitches. Contributed to strategy and sales growth.</p>
-        </div>
+<div class="project-card">
+  <h3>Website Enhancement Strategy for CVTC | Jul 2025 - Aug 2025</h3>
+  <p>Enhanced Canadian Vocational Training Centre's website via UI/UX audits, accessibility improvements, and Figma wireframes. Proposed WordPress templates for better hierarchy and responsiveness.</p>
+</div>
 
-        <div class="card">
-            <h3>Linxy - Marketing Intern (May 2024 - Sep 2024)</h3>
-            <p>Executed marketing strategies, increased brand awareness, and supported expansion to Raleigh. Conducted market research and planning.</p>
-        </div>
+<div class="project-card">
+  <h3>AI-Integrated Business Research Project | Jan 2025 - Apr 2025</h3>
+  <p>Created AI strategy for DICED restaurant operations. Built AI-driven app with chatbot ordering, nutrition calculators, predictive analytics. Ranked 8th internationally at Collegiate DECA ICDC 2025.</p>
+</div>
 
-        <div class="card">
-            <h3>Tech Academy - STEM Intern (Jun 2024 - Aug 2024)</h3>
-            <p>Taught coding, robotics, and video game design to students aged 6–14, making STEM concepts fun and engaging.</p>
-        </div>
-    </section>
+<div class="project-card">
+  <h3>Personal Portfolio Website | May 2024 - Aug 2024</h3>
+  <p>Built personal portfolio site using HTML, CSS, JS to showcase projects, resume, and contact info. Designed with responsive layouts and interactive features.</p>
+</div>
 
-    <!-- --- Projects Section --- -->
-    <section id="projects">
-        <h2>Projects</h2>
+<div class="project-card">
+  <h3>IoT Arduino Device Project | Jun 2020 - Aug 2021</h3>
+  <p>Built COVID-19 counter IoT device using C/C++ and Arduino IDE. Sent data to cloud server to monitor real-time store occupancy. Won 1st place 2 years consecutively.</p>
+</div>
+</section>
 
-        <div class="card">
-            <h3>Website Enhancement Strategy for CVTC</h3>
-            <p>Improved the Canadian Vocational Training Centre’s website via UI/UX audits, accessibility updates, and WordPress templates. Designed wireframes and documented actionable solutions.</p>
-            <p><strong>Skills:</strong> WordPress · UX Design · UI Audits</p>
-        </div>
+<section id="leadership">
+<h2>Leadership</h2>
+<div class="leadership-card">
+  <h3>Collegiate DECA, UNC Charlotte | Founder & President</h3>
+  <p>Organized events, workshops, and competitive event plans for members. Built professional development opportunities.</p>
+</div>
+<div class="leadership-card">
+  <h3>Entrepreneurship Club | Secretary</h3>
+  <p>Coordinated club communication, events, and guest speakers to enhance networking and learning opportunities.</p>
+</div>
+</section>
 
-        <div class="card">
-            <h3>AI-Integrated Business Research Project (Finalist - Collegiate DECA ICDC 2025)</h3>
-            <p>Created an AI-driven strategy for a restaurant, combining chatbot ordering, nutrition calculators, and predictive analytics. Ranked 8th internationally.</p>
-            <p><strong>Skills:</strong> Business Research · Mobile App Design</p>
-        </div>
+<section id="honors">
+<h2>Honors & Awards</h2>
+<ul>
+  <li>DECA Start-Up Business and Innovation Plan - 2nd Place NC (2023)</li>
+  <li>IoT Arduino Challenge - 1st Place (2022)</li>
+  <li>TSA Competition - Top 10 (2022)</li>
+</ul>
+</section>
 
-        <div class="card">
-            <h3>Personal Portfolio Website</h3>
-            <p>Built a portfolio with HTML, CSS, and JavaScript. Features resume, project gallery, and contact info to showcase coding skills and projects.</p>
-            <p><strong>Skills:</strong> HTML · CSS · JavaScript · Web Development</p>
-        </div>
+<section id="contact">
+<h2>Contact</h2>
+<p>Email: <a href="mailto:pratiktanikella@gmail.com">pratiktanikella@gmail.com</a></p>
+<p>LinkedIn: <a href="https://www.linkedin.com/in/pratik-tanikella/" target="_blank">linkedin.com/in/pratik-tanikella</a></p>
+</section>
+</main>
 
-        <div class="card">
-            <h3>IoT Arduino Device Project</h3>
-            <p>Placed 1st twice for creating a COVID-19 counter device using C, C++, and APIs. Device sent real-time data to a cloud server for occupancy tracking.</p>
-            <p><strong>Skills:</strong> C · C++ · Arduino IDE · APIs</p>
-        </div>
-    </section>
+<footer>
+<p>&copy; 2026 Pratik V. Tanikella</p>
+</footer>
 
-    <!-- --- Leadership Section --- -->
-    <section id="leadership">
-        <h2>Leadership</h2>
-
-        <div class="card">
-            <h3>Collegiate DECA - Founder & President</h3>
-            <p>Founded DECA at UNC Charlotte. Organized workshops, guided members, and prepared students for competitive events.</p>
-        </div>
-
-        <div class="card">
-            <h3>Entrepreneurship Club - Secretary</h3>
-            <p>Planned events, coordinated meetings, and managed communications to align members with club initiatives.</p>
-        </div>
-    </section>
-
-    <!-- --- Contact Section --- -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:pratiktanikella@gmail.com">pratiktanikella@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/pratik-tanikella/" target="_blank">linkedin.com/in/pratik-tanikella</a></p>
-    </section>
-
-    <!-- --- Footer --- -->
-    <footer>
-        <p>&copy; 2026 Pratik V. Tanikella</p>
-    </footer>
-
-    <!-- --- JavaScript --- -->
-    <script>
-        // Show navigation bar after scrolling
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > window.innerHeight / 2) {
-                header.style.top = '0';
-            } else {
-                header.style.top = '-80px';
-            }
-        });
-
-        // Scroll arrow click
-        const arrow = document.getElementById('scroll-arrow');
-        arrow.addEventListener('click', () => {
-            document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
-        });
-
-        // Animate sections on scroll
-        const sections = document.querySelectorAll('section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.2 });
-        sections.forEach(section => observer.observe(section));
-    </script>
+<script>
+    // SHOW HEADER ON SCROLL
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        if(window.scrollY > 100) {
+            header.classList.add('show');
+        } else {
+            header.classList.remove('show');
+        }
+    });
+</script>
 </body>
 </html>
+
 
 
 
